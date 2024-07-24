@@ -27,8 +27,12 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const NavigateNow = () => {
     useEffect(() => {
+      try {
         if (isAuthenticated) navigate('/mis-eventos');
-    }, [isAuthenticated]);
+      } catch (err) {
+        console.error('Error al redirigir al usuario:', err);
+      }
+    });
     }
 
   const handleChange = (e) => {
